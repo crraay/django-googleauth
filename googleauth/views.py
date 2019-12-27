@@ -22,6 +22,8 @@ CLIENT_SECRET = getattr(settings, 'GOOGLEAUTH_CLIENT_SECRET', None)
 CALLBACK_DOMAIN = getattr(settings, 'GOOGLEAUTH_CALLBACK_DOMAIN', None)
 APPS_DOMAIN = getattr(settings, 'GOOGLEAUTH_APPS_DOMAIN', None)
 GET_PROFILE = getattr(settings, 'GOOGLEAUTH_GET_PROFILE', True)
+DEFAULT_SCOPE = ['openid', 'email', 'profile']
+SCOPE = getattr(settings, 'GOOGLEAUTH_SCOPE', list())
 
 #
 # utility methods
@@ -59,7 +61,7 @@ def login(request):
     params = {
         'client_id': CLIENT_ID,
         'response_type': 'code',
-        'scope': 'openid email profile',
+        'scope': ' '.join(DEFAULT_SCOPE + SCOPE),
         'redirect_uri': generate_redirect_uri(),
         'state': csrf_token,
     }
