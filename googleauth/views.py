@@ -14,7 +14,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 GOOGLE_AUTH_ENDPOINT = 'https://accounts.google.com/o/oauth2/auth'
 GOOGLE_TOKEN_ENDPOINT = 'https://accounts.google.com/o/oauth2/token'
-GOOGLE_USERINFO_ENDPOINT = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect'
+GOOGLE_USERINFO_ENDPOINT = 'https://www.googleapis.com/oauth2/v1/userinfo'
 
 USE_HTTPS = getattr(settings, 'GOOGLEAUTH_USE_HTTPS', True)
 CLIENT_ID = getattr(settings, 'GOOGLEAUTH_CLIENT_ID', None)
